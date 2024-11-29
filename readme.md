@@ -8,11 +8,21 @@ and for type checking:
 
 pip install django-stubs mypy
 
-django-admin startproject api-django
+django-admin startproject djangoproject
 
-cd api
+cd djangoproject
 
-python manage.py startapp api-django
+python manage.py startapp api
+
+update djangoproject/settings with api/ rest_framework in installed apps
+
+create a basic model in api/models.py
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+in /djangoproject --->    python manage.py runserver
 
 
 
