@@ -20,3 +20,23 @@ class ItemListView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+
+class RustProcessView(APIView):
+    def get(self, request, *args, **kwargs):
+        try:
+            # Call Rust executable and capture output
+            result = subprocess.run(["./rust_program"], capture_output=True, text=True)
+            return Response(result.stdout.strip(), status=200)
+        except Exception as e:
+            return Response(str(e), status=500)
+
+class TensorFlowProcessView(APIView):
+    def get(self, request, *args, **kwargs):
+        try:
+            # Call external Python TensorFlow script
+            result = subprocess.run(["python", "tensorflow_module.py"], capture_output=True, text=True)
+            return Response(result.stdout.strip(), status=200)
+        except Exception as e:
+            return Response(str(e), status=500)

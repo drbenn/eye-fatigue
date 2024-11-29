@@ -25,6 +25,10 @@ python manage.py migrate
 in /djangoproject --->    python manage.py runserver
 
 
+# Rust
+cargo build --release
+
+
 
 That’s a great way to start! Building a simple application to ensure all components work together is an excellent first step. Here's a detailed breakdown of how you can achieve this goal, including setting up a .NET MAUI front-end, .NET API backend, integration with Python (for TensorFlow), Rust (for image processing), and local storage (SQLite or files).
 Simplified Application Overview
